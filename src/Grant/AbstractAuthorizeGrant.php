@@ -22,6 +22,7 @@ abstract class AbstractAuthorizeGrant extends AbstractGrant
      */
     public function makeRedirectUri($uri, $params = [], $queryDelimiter = '?')
     {
+        $uri ??= '';
         $uri .= (\strstr($uri, $queryDelimiter) === false) ? $queryDelimiter : '&';
 
         return $uri . \http_build_query($params);
